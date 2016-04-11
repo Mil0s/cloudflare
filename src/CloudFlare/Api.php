@@ -223,7 +223,8 @@ class Api
         if($method === 'post') {
             curl_setopt($ch, CURLOPT_POST, true);
             //curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+            $headers[] = "Content-type: application/json";
         } else if ($method === 'put') {
             curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
             curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
